@@ -66,6 +66,5 @@ int main() {
 	for (uint16_t i = 0; i < 256; ++i) {
 		start[i].count=0;
 	}
-	munch(&start[0], corpus);
 	repl();
 }
