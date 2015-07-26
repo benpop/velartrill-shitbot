@@ -32,11 +32,15 @@ void push(struct list* list, uint8_t v) {
 
 void follow(struct list* l) {
 	struct node* cur = l->head;
-	if (l->count == 0) {printf("\n"); return;}
-	for (uint8_t p = rand()%l->count; p != 0; --p) cur=cur->next;
-	if (cur->v == 0) {printf("\n"); return;}
-	printf("%c", cur->v);
-	follow(&start[cur->v]);
+	while (l->count != 0) {
+		for (uint8_t p = rand()%l->count; p != 0; --p) cur=cur->next;
+		if (cur->v == 0) goto end;
+		printf("%c", cur->v);
+		l = &start[cur->v];
+		cur = l->head;
+	}
+end:
+	printf("\n");
 }
 
 void munch(struct list* st, const char* str) {
