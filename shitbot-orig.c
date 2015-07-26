@@ -1,8 +1,6 @@
 // shitbot.c
 // a shit bot
 // by ʞ (@velartrill)
-//
-// edited by @benpop for tail-call optimizations
 
 #include <stdint.h>
 #include <stdlib.h>
