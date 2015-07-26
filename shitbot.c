@@ -53,12 +53,13 @@ void munch(struct list* st, const char* str) {
 }
 
 void repl() {
-	char* input = readline("\1\x1b[1m\2>\1\x1b[0m\2 ");
-	push(&start[0], *input);
-	munch(&start[input[0]], input+1);
-	free(input);
-	follow(&start[0]);
-	repl();
+	for (;;) {
+		char* input = readline("\1\x1b[1m\2>\1\x1b[0m\2 ");
+		push(&start[0], *input);
+		munch(&start[input[0]], input+1);
+		free(input);
+		follow(&start[0]);
+	}
 }
 
 int main() {
