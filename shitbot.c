@@ -44,12 +44,12 @@ end:
 }
 
 void munch(struct list* st, const char* str) {
-	if (*str==0) {
-		push(st, 0);
-		return;
+	while (*str!=0) {
+		push(st, *str);
+		st = &start[*str];
+		++str;
 	}
-	push(st, *str);
-	munch(&start[*str], str+1);
+	push(st, 0);
 }
 
 void repl() {
